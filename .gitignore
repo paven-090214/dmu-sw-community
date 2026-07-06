@@ -1,1 +1,25 @@
+# Node / React
 node_modules/
+dist/
+.vite/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Spring / Gradle
+.gradle/
+build/
+**/.gradle/
+**/build/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
