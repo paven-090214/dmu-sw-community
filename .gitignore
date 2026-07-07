@@ -1,22 +1,27 @@
-# Node / React
+.settings/
 node_modules/
+.vscode/
+.gradle/
+.vscode/
+application.yaml
+.project
+
+# Vite / frontend build
 dist/
 .vite/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
 
 # Environment
 .env
 .env.*
 !.env.example
 
-# Spring / Gradle
-.gradle/
-build/
-**/.gradle/
-**/build/
-out/
-
 # IDE
-.vscode/
 .idea/
 *.iml
 
