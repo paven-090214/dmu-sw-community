@@ -1,0 +1,22 @@
+App.jsx
+component/
+	header/
+        header.jsx
+		검색
+		메인으로 돌아가기
+		네비게이션바
+    body/
+        page/
+            학과 공지
+            대학 공지
+            QnA
+            게시글
+            내 정보
+        comment/
+            댓글
+            대댓글?
+    loginPage/
+        로그인
+        회원가입
+    function/
+        계산
