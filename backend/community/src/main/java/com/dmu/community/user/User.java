@@ -30,7 +30,7 @@ public class User {
     private LocalDateTime createdAt;
 
     @Column(name="is_deleted", nullable=false)
-    private boolean deleted;
+    private boolean isDeleted;
 
     protected User() {
     }
@@ -63,6 +63,6 @@ public class User {
     }
 
     public boolean getIsDeleted(){
-        return deleted;
+        return isDeleted;
     }
 }
