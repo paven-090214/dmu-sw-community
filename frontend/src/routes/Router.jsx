@@ -7,6 +7,7 @@ import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import BoardPage from '../pages/BoardPage';
 import BoardWritePage from '../pages/BoardWritePage';
+import MyPage from '../pages/MyPage';
 
 function Router(){
     return(
@@ -17,6 +18,7 @@ function Router(){
             <Route path="/loginpage" element={<LoginPage />}/>
             <Route path="/board/:boardType" element={<BoardPage />} />
             <Route path="/board/:boardType/write" element={<BoardWritePage />} />
+            <Route path="/mypage" element={<MyPage />} />
         </Routes>
     )
 }
