@@ -26,8 +26,11 @@ public class User {
     @Column(name = "nickname", nullable = false, length = 10, unique = true)
     private String nickname;
 
-    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @Column(name="is_deleted", nullable=false)
+    private boolean isDeleted;
 
     protected User() {
     }
@@ -36,6 +39,7 @@ public class User {
         this.userId = userId;
         this.password = password;
         this.nickname = nickname;
+        this.createdAt = LocalDateTime.now();
     }
 
     public Long getUid(){
@@ -58,4 +62,7 @@ public class User {
         return password;
     }
 
+    public boolean getIsDeleted(){
+        return isDeleted;
+    }
 }
