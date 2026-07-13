@@ -13,14 +13,15 @@ export default function LoginBox({ whatView }) {
                     {whatView === "login" && <h1>로그인</h1>}
                     {whatView === "regis" && <h1>회원가입</h1>}
                 </div>
-                <hr />
                 <div className="loginBox__content">
                     {whatView === "login" && <Login />}
                     {whatView === "regis" && <Regis />}
                 </div>
-                <hr />
-                <input type="button" value="로그인" onClick={() => navigate("/Login")} className="loginBox__loginBtn" />
-                <input type="button" value="회원가입" onClick={() => navigate("/Regis")} className="loginBox__regisBtn" />
+                <div className="loginBox__buttons">
+                    <input type="button" value="로그인" onClick={() => navigate("/Login")} className="loginBox__loginBtn" />
+                    <input type="button" value="회원가입" onClick={() => navigate("/Regis")} className="loginBox__regisBtn" />
+                </div>
+
             </div>
         </>
     );
