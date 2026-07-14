@@ -1,7 +1,10 @@
 package com.dmu.community.board;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dmu.community.board.dto.BoardCreateRequest;
 import com.dmu.community.board.dto.BoardCreateResponse;
+import com.dmu.community.board.dto.BoardListResponse;
 
 @RestController
-@RequestMapping("/api/boards")
+@RequestMapping("/api/board")
 public class BoardController {
     private final BoardService boardService;
 
@@ -31,5 +35,14 @@ public class BoardController {
     ) {
         BoardCreateResponse response = boardService.createBoard(boardType, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/{boardType}")
+    public ResponseEntity<List<BoardListResponse>> getBoardList(
+        @PathVariable String boardType
+    ) {
+        return ResponseEntity.ok(
+            boardService.getBoardList(boardType)
+        );
     }
 }

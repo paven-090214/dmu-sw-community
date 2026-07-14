@@ -23,6 +23,7 @@ export default function LoginPage() {
                 headers: {
                     "Content-Type": "application/json"
                 },
+                // stringfy: json형태를 문자열로 변환
                 body: JSON.stringify({
                     userId: login.userId,
                     password: login.password,
@@ -37,7 +38,7 @@ export default function LoginPage() {
 
             const data = await response.json();
             localStorage.setItem("loginUser", JSON.stringify(data));
-            // loginStatus 
+            // window에 loginStatus이름을 가진 사용자 정의 이벤트가 발생함을 알림(리렌더링은 하지 않음)
             window.dispatchEvent(new Event("loginStatus"));
 
             console.log("로그인 성공", data);

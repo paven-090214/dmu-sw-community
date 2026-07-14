@@ -1,10 +1,13 @@
 package com.dmu.community.board;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dmu.community.board.dto.BoardCreateRequest;
 import com.dmu.community.board.dto.BoardCreateResponse;
+import com.dmu.community.board.dto.BoardListResponse;
 import com.dmu.community.user.User;
 import com.dmu.community.user.UserRepository;
 
@@ -46,8 +49,20 @@ public class BoardService {
         return BoardCreateResponse.from(saveBoard);
     }
 
+    public List<BoardListResponse> getBoardList(String boardType) {
+        if(!boardType.equals("talk") && !boardType.equals("question")) {
+            throw new IllegalArgumentException("존재하지 않는 게시판입니다.");
+        }
+
+        return boardRepository
+            .findByBoardTypeOrderByCreatedAtDesc(boardType) // 각 타입에 맞는 게시판 쿼리(List<Board>)를 받음
+            .stream() // List<Board>를 stream<Board>로 변경해 가공할 수 있도록 변경
+            .map(board -> BoardListResponse.from(board)) // 각 쿼리의 값을 dto에 맞도록 가공함
+            .toList(); // 다시 List형태로 변경함
+    }
+
     private void validateBoardType(String boardType) {
-        if(!boardType.equals("request") && !boardType.equals("talk")) {
+        if(!boardType.equals("question") && !boardType.equals("talk")) {
             throw new IllegalArgumentException("존재하지 않는 게시판입니다.");
         }
     }

@@ -1,8 +1,8 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
 export default function Header() { 
-    
+    const history = useNavigate();
     const [loginUser, setLoginUser] = useState(() => {
         const data = localStorage.getItem("loginUser");
         if (!data) {
@@ -19,7 +19,7 @@ export default function Header() {
                 setLoginUser(null);
                 return;
             }
-    
+            // parse: json을 js객체로 해석한다
             setLoginUser(JSON.parse(data));
         });
 
@@ -30,6 +30,13 @@ export default function Header() {
         }
 
     }, []);
+
+    const logout = () =>{
+        localStorage.removeItem("loginUser");
+        setLoginUser(null);
+        window.dispatchEvent(new Event("loginStatus"));
+        history("/mainpage");
+    }
 
     return (
         <>
@@ -46,6 +53,7 @@ export default function Header() {
                     <Link to="/mypage">
                         <button type="button">내 정보 보기</button>
                     </Link>
+                    <button type="button" onClick={logout}>로그아웃</button>
                 </div>
             ) :(
                 <div>
