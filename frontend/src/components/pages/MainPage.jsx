@@ -1,35 +1,23 @@
 import { Link } from "react-router-dom";
-import Header from "../header/Header";
+import './MainPage.css';
 
 function MainPage() {
-    return(
-        <div>
-            <div>
-                <Link to="/board/school">
-                    <h1>학교 공지사항</h1>
-                </Link>
-                <p>학과 공지사항 페이지입니다.</p>
-            </div>
-            <div>
-                <Link to="/board/department">
-                    <h1>학과 공지사항</h1>
-                </Link>
-                <p>학과 공지사항 페이지입니다.</p>
-            </div>
-            <div>
-                <Link to="/board/talk">
-                    <h1>자유 게시판</h1>
-                </Link>
-                <p>잡담</p>
-            </div>
-            <div>
-                <Link to="/board/question">
-                    <h1>QnA</h1>
-                </Link>
-                <p>질문</p>
+    return (
+        <div className="mainPage">
+            <div className="mainPage__schoolNoticeContainer">
+                <div className="mainPage__schoolNoticeTitleContainer">
+                    <div className="mainPage__noticeTitle">학교 공지사항</div>
+                    <Link to="/board/schoolNotice" className="mainPage__schoolNoticeLink">〓</Link>
+                </div>
+                <div className="mainPage__schoolNoticeContents">
+                    <ul className="mainPage__schoolNoticeList">
+                        <li>공지사항 1</li>
+                        <li>공지사항 2</li>
+                        <li>공지사항 3</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        
     );
 }
 export default MainPage;

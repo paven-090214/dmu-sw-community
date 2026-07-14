@@ -1,0 +1,41 @@
+.mainPage{
+    width: 90vw;
+    height: 70vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+.mainPage__schoolNoticeContainer{
+    width: 30%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 1vw;
+    border: 0.1vw solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 1vw;
+}
+.mainPage__schoolNoticeTitleContainer{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.mainPage__schoolNoticeLink {
+    color: black;
+    text-decoration: none;
+    margin-right: 1vw;
+}
+.mainPage__schoolNoticeLink:visited {
+    color: black;
+    text-decoration: none;
+}
+.mainPage__noticeTitle{
+    font-size: large;
+    margin-left: 1vw;
+}
